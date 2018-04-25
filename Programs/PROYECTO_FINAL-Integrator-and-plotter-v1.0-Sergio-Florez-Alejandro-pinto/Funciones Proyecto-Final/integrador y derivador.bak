@@ -1,0 +1,50 @@
+;-----------------------------------------------DERIVAR-----------------------------------------------------
+(define (derivar vector-coeficientes vector-exponentes contador)
+        (if (= contador (vector-length vector-coeficientes))
+            (begin
+                 (display vector-coeficientes)
+                 (display vector-exponentes)
+            )
+           (begin
+                 (vector-set! vector-coeficientes  contador (* (vector-ref vector-coeficientes contador) (vector-ref vector-exponentes contador)))
+                 (vector-set! vector-exponentes contador (- (vector-ref vector-exponentes contador) 1) )
+                 (derivar vector-coeficientes vector-exponentes (+ contador 1))
+           )
+       )
+)
+
+;-----------------------------------------------INTEGRAR-----------------------------------------------------
+(define (integrar vector-coeficientes vector-exponentes contador)
+        (if (= contador (vector-length vector-coeficientes))
+            (begin
+                 (display vector-coeficientes)
+                 (display vector-exponentes)
+            )
+           (begin
+                 (vector-set! vector-exponentes contador (+ (vector-ref vector-exponentes contador) 1) )
+                 (vector-set! vector-coeficientes  contador (/ (vector-ref vector-coeficientes contador) (vector-ref vector-exponentes contador)))
+                 (integrar vector-coeficientes vector-exponentes (+ contador 1))
+           )
+       )
+)
+
+
+;------------------------------------------CREAR Y LLENAR VECTOR---------------------------------------------
+(define (llenar_vector vector contador numero_vector)
+        (if (= contador (vector-length vector))
+            vector
+            (begin
+                  (display "Por favor ingrese el elemento numero ")
+                  (display (+ contador 1))
+                  (display " del vectro ")
+                  (display numero_vector )
+                  (display " :")
+                  (vector-set! vector contador (read))
+                  (llenar_vector vector (+ contador 1) numero_vector)
+            )
+        )
+)
+
+;-----------------------------------------------INICIO-----------------------------------------------------
+;(derivar (llenar_vector (make-vector 4) 0 "coeficiente") (llenar_vector (make-vector 4) 0 "Exponentes") 0)
+(integrar (llenar_vector (make-vector 4) 0 "coeficiente") (llenar_vector (make-vector 4) 0 "Exponentes") 0)
