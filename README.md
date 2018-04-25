@@ -33,3 +33,4 @@ sudo apt update && sudo apt install racket
 7. [Recursivity Workshop](RecursivityWorkshop)
 8. [Series](Series)
 9. [Structures](Structures)
+10. [Functions integrator and plotter final project](programs/PROYECTO_FINAL-Integrator-and-plotter-v1.0-Sergio-Florez&Alejandro-pinto)
