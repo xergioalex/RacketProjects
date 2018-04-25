@@ -1,0 +1,55 @@
+;; The first three lines of this file were inserted by DrScheme. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-advanced-reader.ss" "lang")((modname semaforo) (read-case-sensitive #t) (teachpacks ((lib "draw.ss" "teachpack" "htdp"))) (htdp-settings #(#t constructor repeating-decimal #t #t none #f ((lib "draw.ss" "teachpack" "htdp")))))
+;dimensiones del semaforo
+(define ANCHURA 50)
+(define ALTURA 160)
+(define RADIO 20)
+(define DISTANCIA 10)
+;Las posiciones de los focos
+(define X-foco (quotient ANCHURA 2))
+(define Y-ROJO (+ DISTANCIA  RADIO))
+(define Y-AMARILLO (+ Y-ROJO DISTANCIA (* 2 RADIO)))
+(define Y-VERDE (+ Y-AMARILLO DISTANCIA (* 2 RADIO)))
+;definicion de estados
+(define (E1 X-foco Y-ROJO Y-AMARILLO Y-VERDE DISTANCIA RADIO)
+  (begin
+    (display(draw-solid-disk (make-posn X-foco Y-ROJO) RADIO 'red))
+    (display(draw-circle (make-posn X-foco Y-AMARILLO) RADIO 'YELLOW))
+    (display(draw-solid-disk (make-posn X-foco Y-VERDE) RADIO 'white))
+    )
+  )
+(define (E2 X-foco Y-ROJO Y-AMARILLO Y-VERDE DISTANCIA RADIO)
+  (begin
+    (display(draw-solid-disk (make-posn X-foco Y-ROJO) RADIO 'red))
+    (display(draw-solid-disk (make-posn X-foco Y-AMARILLO) RADIO 'YELLOW))
+    (display(draw-circle (make-posn X-foco Y-VERDE) RADIO 'green))
+    )
+  )
+(define (E3 X-foco Y-ROJO Y-AMARILLO Y-VERDE DISTANCIA RADIO)
+  (begin
+    (display(draw-solid-disk (make-posn X-foco Y-ROJO) RADIO 'white))
+    (display(draw-solid-disk (make-posn X-foco Y-AMARILLO) RADIO 'white))
+    (display(draw-solid-disk (make-posn X-foco Y-VERDE) RADIO 'green))
+    )
+  )
+(define (sleep a b)
+  (if (< 0 b)
+      (+ 1 (sleep a (- b 1)))
+      (+ a b)
+      )
+  )
+(start ANCHURA ALTURA)
+;semaforo
+(define (Semaforo X-foco Y-ROJO Y-AMARILLO Y-VERDE DISTANCIA RADIO)
+  (begin
+    (E1 X-foco Y-ROJO Y-AMARILLO Y-VERDE DISTANCIA RADIO)
+    (sleep 1 1000000)
+    (E2 X-foco Y-ROJO Y-AMARILLO Y-VERDE DISTANCIA RADIO)
+    (sleep 1 500000)
+    (E3 X-foco Y-ROJO Y-AMARILLO Y-VERDE DISTANCIA RADIO)
+    (sleep 1 900000)
+    (Semaforo X-foco Y-ROJO Y-AMARILLO Y-VERDE DISTANCIA RADIO)
+    )
+  )
+(Semaforo X-foco Y-ROJO Y-AMARILLO Y-VERDE DISTANCIA RADIO)

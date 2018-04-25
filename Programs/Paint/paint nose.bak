@@ -1,0 +1,25 @@
+(require (lib "graphics.ss" "graphics"))
+(open-graphics) 
+(define w (open-viewport "Paint" 600 600))
+
+(define (lapiz)
+  
+  (define c (ready-mouse-release w))
+  (define po (query-mouse-posn w))
+  
+  (cond 
+    [(equal? c #f)(begin ((draw-pixel w) po "red")
+                         (lapiz))]
+    [else (esperar)]
+    )
+  )
+
+(define (esperar)
+  (define c (ready-mouse-click w))
+  (cond 
+    [(equal? c #f) (begin 
+                     (viewport-flush-input w)
+                     (esperar))]
+    [else(lapiz)]
+    ))
+(esperar)

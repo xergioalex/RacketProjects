@@ -1,0 +1,18 @@
+(define (par x )
+        (if (= (remainder x 2) 0)
+            #t
+            #f
+        )
+)
+(par 2)
+
+(define (es_par n)
+     (if (= n 0)
+         #t
+         (if (= n 1)
+             #f
+             (es_par (- n 2))
+         )
+     )
+)
+(es_par 7)
