@@ -36,3 +36,7 @@ sudo apt update && sudo apt install racket
 10. [Functions integrator and plotter - FINAL PROJECT](Programs/PROYECTO_FINAL-Integrator-and-plotter-v1.0-Sergio-Florez-Alejandro-pinto)
 
 ![Final Project Logo](Programs/PROYECTO_FINAL-Integrator-and-plotter-v1.0-Sergio-Florez-Alejandro-pinto/Logo.bmp)
+
+---
+
+![Final Project Demo Gif](Programs/PROYECTO_FINAL-Integrator-and-plotter-v1.0-Sergio-Florez-Alejandro-pinto/demo.gif)
