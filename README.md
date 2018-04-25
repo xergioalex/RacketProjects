@@ -23,4 +23,13 @@ sudo apt update && sudo apt install racket
 
 ## Programs
 
-1. [Calendar Workshop](Calendar\ Workshop)
+1. [Documentation](FUNCIONES_DE_SCHEME.pdf)
+1. [Calendar Workshop](CalendarWorkshop)
+2. [Chain and vector workshop](ChainAndVectorWorkshop)
+3. [Class Exercises](ClassExercises)
+4. [Exercises using Chains](ExercisesUsingChains)
+5. [Programming Workshops](ProgrammingWorkshops)
+6. [Programs](Programs)
+7. [Recursivity Workshop](RecursivityWorkshop)
+8. [Series](Series)
+9. [Structures](Structures)
