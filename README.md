@@ -23,4 +23,4 @@ sudo apt update && sudo apt install racket
 
 ## Programs
 
-1. [Calendar Workshop](Calendar Workshop)
+1. [Calendar Workshop](CalendarWorkshop)
