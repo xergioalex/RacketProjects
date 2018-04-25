@@ -1,9 +1,0 @@
-(require (lib "graphics.ss" "graphics"))
-
-(open-graphics)
-
-(define ventana (open-viewport "Graficador" 650 650))
-((draw-line ventana) (make-posn 325 0) (make-posn 325 650) "black")
-((draw-line ventana) (make-posn 0 325) (make-posn 650 325) "black")
-(read)
-(close-graphics)
